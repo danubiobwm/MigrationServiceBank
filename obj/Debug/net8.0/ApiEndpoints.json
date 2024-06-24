@@ -1,0 +1,58 @@
+[
+  {
+    "ContainingType": "MigrationService.Controllers.ExtractionController",
+    "Method": "FetchData",
+    "RelativePath": "api/v1/extraction/fetch-data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MigrationService.Controllers.ExtractionController",
+    "Method": "GenerateFile",
+    "RelativePath": "api/v1/extraction/generate-file",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MigrationService.Controllers.ExtractionController",
+    "Method": "ReadData",
+    "RelativePath": "api/v1/extraction/read-data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MigrationService.Controllers.SiglaController",
+    "Method": "GetAllSiglas",
+    "RelativePath": "api/v1/siglas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MigrationService.Controllers.SiglaController",
+    "Method": "GetSigla",
+    "RelativePath": "api/v1/siglas/{sigla}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sigla",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

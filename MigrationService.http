@@ -1,0 +1,10 @@
+@MigrationService_HostAddress = https://localhost:7287
+
+
+GET {{MigrationService_HostAddress}}/api/v1/extraction/fetch-data
+
+###
+
+GET {{MigrationService_HostAddress}}/api/v1/siglas
+
+###
