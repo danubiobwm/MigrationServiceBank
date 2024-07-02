@@ -1,4 +1,5 @@
 ﻿using MigrationService.Data;
+using MigrationService.Interfaces;
 using MigrationService.Models;
 
 namespace MigrationService.Services

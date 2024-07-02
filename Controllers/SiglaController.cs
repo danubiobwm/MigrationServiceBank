@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MigrationService.Services;
+using MigrationService.Interfaces;
 
 namespace MigrationService.Controllers
 {

@@ -10,6 +10,7 @@ namespace MigrationService.Data
 
         public DbSet<DataModel> Data { get; set; }
         public DbSet<SiglaModel> Siglas { get; set; }
+        public DbSet<DataModel> DataModels { get; set; }
 
         //test InMemory
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,6 +20,7 @@ namespace MigrationService.Data
                 new SiglaModel { Id = 2, Sigla = "CHI", Descricao = "Câmbio CHI" },
                 new SiglaModel { Id = 3, Sigla = "TUR", Descricao = "Câmbio TUR" }
             );
+            modelBuilder.Entity<DataModel>().HasKey(dm => dm.Id);
         }
     }
 }

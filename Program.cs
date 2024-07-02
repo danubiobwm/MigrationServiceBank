@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using MigrationService.Data;
+using MigrationService.Interfaces;
 using MigrationService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,8 +22,11 @@ else
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 }
 
+builder.Services.AddScoped<IProcedureRepository, ProcedureRepository>();
+builder.Services.AddScoped<IProcessService, ProcessService>();
 builder.Services.AddScoped<IExtractionService, ExtractionService>();
 builder.Services.AddScoped<ISiglaService, SiglaService>();
+
 
 // Adicione e configure o Swagger
 builder.Services.AddEndpointsApiExplorer();

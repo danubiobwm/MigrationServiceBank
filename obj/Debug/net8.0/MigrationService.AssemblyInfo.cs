@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MigrationService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3f1c9199b65cfdbb008ddde687cbc99d5fca75e")]
 [assembly: System.Reflection.AssemblyProductAttribute("MigrationService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MigrationService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

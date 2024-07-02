@@ -35,8 +35,12 @@ namespace MigrationService.Services
         public async Task<string> GenerateFileAsync()
         {
             var data = await FetchDataAsync();
-            var filePath = FileGenerator.GenerateFile(data);
-            return filePath;
+            var csvFilePath = FileGenerator.CreateCsvFile(data, "Data/Output/CHG_APC_DISPONIBILIDADES.csv");
+            var txtFilePath = FileGenerator.CreateTxtFile(data, "Data/Output/CHG_APC_DISPONIBILIDADES.txt");
+
+            // Aqui você pode escolher qual caminho de arquivo retornar
+            // Retornando o caminho do arquivo CSV como exemplo
+            return csvFilePath;
         }
 
         public async Task<List<DataModel>> GetDataAsync()

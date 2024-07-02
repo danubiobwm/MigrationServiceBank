@@ -1,32 +1,49 @@
 [
   {
     "ContainingType": "MigrationService.Controllers.ExtractionController",
-    "Method": "FetchData",
-    "RelativePath": "api/v1/extraction/fetch-data",
+    "Method": "Process",
+    "RelativePath": "api/Extraction/{idProcesso}/{procedureName}/{outputFormat}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "idProcesso",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "procedureName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "outputFormat",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "parameters",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "MigrationService.Controllers.ExtractionController",
-    "Method": "GenerateFile",
-    "RelativePath": "api/v1/extraction/generate-file",
+    "Method": "GetDataModels",
+    "RelativePath": "api/Extraction/DataModels/{idProcesso}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MigrationService.Controllers.ExtractionController",
-    "Method": "ReadData",
-    "RelativePath": "api/v1/extraction/read-data",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "idProcesso",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -1,38 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MigrationService.Services;
+using MigrationService.Interfaces;
 
 namespace MigrationService.Controllers
 {
-    [Route("api/v1/extraction")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ExtractionController : ControllerBase
     {
-        private readonly IExtractionService _extractionService;
+        private readonly IProcessService _processService;
 
-        public ExtractionController(IExtractionService extractionService)
+        public ExtractionController(IProcessService processService)
         {
-            _extractionService = extractionService;
+            _processService = processService;
         }
 
-        [HttpGet("fetch-data")]
-        public async Task<IActionResult> FetchData()
+        [HttpGet("{idProcesso}/{procedureName}/{outputFormat}")]
+        public async Task<IActionResult> Process(int idProcesso, string procedureName, string outputFormat, [FromQuery] Dictionary<string, object> parameters)
         {
-            var data = await _extractionService.FetchDataAsync();
-            return Ok(data);
+            var outputPath = $"C:\\Output\\{procedureName}_{idProcesso}.{outputFormat.ToLower()}";
+            await _processService.ProcessAsync(idProcesso, procedureName, parameters, outputPath, outputFormat);
+            return Ok(new { Message = "Process completed", OutputPath = outputPath });
         }
 
-        [HttpGet("read-data")]
-        public async Task<IActionResult> ReadData()
+        [HttpGet("DataModels/{idProcesso}")]
+        public async Task<IActionResult> GetDataModels(int idProcesso)
         {
-            var data = await _extractionService.ReadDataAsync();
-            return Ok(data);
-        }
-
-        [HttpGet("generate-file")]
-        public async Task<IActionResult> GenerateFile()
-        {
-            var filePath = await _extractionService.GenerateFileAsync();
-            return Ok(new { filePath });
+            var dataModels = await _processService.GetDataModelsAsync(idProcesso);
+            return Ok(dataModels);
         }
     }
 }

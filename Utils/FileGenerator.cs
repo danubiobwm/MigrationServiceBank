@@ -1,22 +1,30 @@
-﻿using MigrationService.Models;
-using System.Text;
+﻿using CsvHelper;
+using System.Globalization;
 
 namespace MigrationService.Utils
 {
     public static class FileGenerator
     {
-        public static string GenerateFile(IEnumerable<DataModel> data)
+        public static string CreateCsvFile(IEnumerable<dynamic> data, string outputPath)
         {
-            var filePath = Path.Combine("Output", $"output_{DateTime.Now:yyyyMMddHHmmss}.txt");
-            var content = new StringBuilder();
-
-            foreach (var item in data)
+            using (var writer = new StreamWriter(outputPath))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-                content.AppendLine($"{item.Field1},{item.Field2}");
+                csv.WriteRecords(data);
             }
+            return outputPath; // Retornar o caminho do arquivo criado
+        }
 
-            File.WriteAllText(filePath, content.ToString());
-            return filePath;
+        public static string CreateTxtFile(IEnumerable<dynamic> data, string outputPath)
+        {
+            using (var writer = new StreamWriter(outputPath))
+            {
+                foreach (var record in data)
+                {
+                    writer.WriteLine(string.Join("|", ((IDictionary<string, object>)record).Values));
+                }
+            }
+            return outputPath; // Retornar o caminho do arquivo criado
         }
     }
 }

@@ -1,8 +1,7 @@
-﻿namespace MigrationService.Models
+﻿namespace MigrationService.Data
 {
-    public class DataModel
+    public class MockData
     {
-        public int Id { get; set; } 
         public int IdProcesso { get; set; }
         public string Data { get; set; }
         public string Value { get; set; }
